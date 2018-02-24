@@ -13,9 +13,9 @@ namespace :npm do
     command %{
       echo "-----> Installing node modules using Npm"
       sub_directory=$(pwd | sed -r "s/.*?$(basename $build_path)//g")
-      #{echo_cmd %[mkdir -p "#{fetch(:deploy_to)}/#{fetch(:shared_path)}/$sub_directory/node_modules"]}
-      #{echo_cmd %[ln -s "#{fetch(:deploy_to)}/#{fetch(:shared_path)}/$sub_directory/node_modules" "node_modules"]}
-      #{echo_cmd %[#{fetch(:npm_bin)} install #{fetch(:npm_options)}]}
+      #{echo_cmd %[mkdir -p "#{fetch(:shared_path)}/$sub_directory/node_modules"]}
+      #{echo_cmd %[ln -s "#{fetch(:shared_path)}/$sub_directory/node_modules" "node_modules"]}
+      #{echo_cmd %[#{fetch(:npm_bin)} install]}
     }
   end
 end
